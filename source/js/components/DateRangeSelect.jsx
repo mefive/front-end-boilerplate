@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import 'styles/components/react/dateRangeSelect.scss';
+import 'styles/components/dateRangeSelect.scss';
 
 import Select from './Select';
 import Trigger from './Trigger';

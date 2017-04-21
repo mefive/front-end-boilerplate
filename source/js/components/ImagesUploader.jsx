@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Input from './Input';
 
-import 'styles/components/react/imagesUploader.scss';
+import 'styles/components/imagesUploader.scss';
 
 const propTypes = {
   width: PropTypes.number,

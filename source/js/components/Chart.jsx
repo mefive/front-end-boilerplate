@@ -5,7 +5,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import merge from 'lodash/merge';
 import isFunction from 'lodash/isFunction';
 
-import 'styles/components/react/chart.scss';
+import 'styles/components/chart.scss';
 
 const Highcharts = require('highcharts');
 require('highcharts/modules/exporting')(Highcharts);

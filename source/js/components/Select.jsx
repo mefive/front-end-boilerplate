@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import isEqual from 'lodash/isEqual';
 
-import 'styles/components/react/select.scss';
+import 'styles/components/select.scss';
 
 import Trigger from './Trigger';
 import Popover from './Popover';

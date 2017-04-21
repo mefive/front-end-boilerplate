@@ -4,7 +4,7 @@ import tsml from 'tsml';
 import padStart from 'lodash/padStart';
 import classNames from 'classnames';
 
-import 'styles/components/react/calendar.scss';
+import 'styles/components/calendar.scss';
 import CalendarData from 'core/Calendar';
 
 const calendarData = new CalendarData(0);

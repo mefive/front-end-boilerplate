@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import 'styles/components/react/datePicker.scss';
+import 'styles/components/datePicker.scss';
 
 import Trigger from './Trigger';
 import Calendar from './Calendar';

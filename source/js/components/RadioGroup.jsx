@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import 'styles/components/react/radioGroup.scss';
+import 'styles/components/radioGroup.scss';
 
 const defaultProp = {
   options: [],

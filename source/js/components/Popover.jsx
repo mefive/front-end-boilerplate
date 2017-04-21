@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 
-import 'styles/components/react/popover.scss';
+import 'styles/components/popover.scss';
 
 class Popover extends Component {
   static propTypes = {

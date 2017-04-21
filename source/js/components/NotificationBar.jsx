@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Animate from './Animate';
 import sleep from 'utils/sleep';
 
-import 'styles/components/react/notificationBar.scss';
+import 'styles/components/notificationBar.scss';
 
 export class Notification extends Component {
   componentDidMount() {

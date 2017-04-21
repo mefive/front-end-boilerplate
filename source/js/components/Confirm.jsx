@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Modal from './Modal';
 
-import 'styles/components/react/confirm.scss';
+import 'styles/components/confirm.scss';
 
 const propTypes = {
   onClose: PropTypes.func,

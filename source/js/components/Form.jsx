@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import pick from 'lodash/pick';
 import isFunction from 'lodash/isFunction';
 
-import 'styles/components/react/form.scss';
+import 'styles/components/form.scss';
 
 import Input from './Input';
 import Select from './Select';

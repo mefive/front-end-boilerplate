@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import 'styles/components/react/modal.scss';
+import 'styles/components/modal.scss';
 
 import Portal from './Portal';
 import Animate from './Animate';

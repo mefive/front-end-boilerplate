@@ -5,7 +5,7 @@ import isFunction from 'lodash/isFunction';
 import remove from 'lodash/remove';
 import sortBy from 'lodash/sortBy';
 
-import 'styles/components/react/table.scss';
+import 'styles/components/table.scss';
 
 function toggleSortDirection(origin) {
   return origin === Table.ASC

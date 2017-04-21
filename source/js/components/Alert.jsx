@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Modal from './Modal';
 
-import 'styles/components/react/alert.scss';
+import 'styles/components/alert.scss';
 
 const propTypes = {
   onClose: PropTypes.func,

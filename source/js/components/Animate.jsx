@@ -5,7 +5,7 @@ import isEqual from 'lodash/isEqual';
 import sortBy from 'lodash/sortBy';
 import remove from 'lodash/remove';
 
-import 'styles/components/react/animation.scss';
+import 'styles/components/animation.scss';
 
 const INIT = 'init';
 const MOUNTED = 'mounted';

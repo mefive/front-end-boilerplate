@@ -1,0 +1,12 @@
+extends ./base.jade
+
+block data
+  -
+    var page = {
+      name: 'analytics',
+      title: 'analytics',
+      module: 'apps/demo/analytics'
+    };
+
+block style
+  link(rel="stylesheet", type="text/css", href="/stylesheets/analytics.css")
