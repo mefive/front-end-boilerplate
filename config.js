@@ -6,7 +6,7 @@ var modules = {
   index: {
     js: 'index',
     html: './jade/index.jade'
-  }
+  },
 };
 
 var orderedChunks = [

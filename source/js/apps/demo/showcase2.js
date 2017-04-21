@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import AceEditor from 'react-ace';
 import random from 'lodash/random';
 import uniqueId from 'lodash/uniqueId';
 
-import brace from 'brace';
-import 'brace/mode/javascript';
-import 'brace/theme/solarized_light';
-import 'brace/keybinding/vim'
-
-import 'styles/showcase.scss';
+import 'styles/core';
+import 'styles/apps/showcase.scss';
 
 import ShowcaseContainer from './ShowcaseContainer';
 
-import Form from 'components/react/Form2';
-import Input from 'components/react/Input';
-import Select from 'components/react/Select';
-import RadioGroup from 'components/react/RadioGroup';
-import Table from 'components/react/Table';
-import Animate from 'components/react/Animate';
-import NotificationBar from 'components/react/NotificationBar';
+import Form from 'components/Form2';
+import Input from 'components/Input';
+import Select from 'components/Select';
+import RadioGroup from 'components/RadioGroup';
+import Table from 'components/Table';
+import Animate from 'components/Animate';
+import NotificationBar from 'components/NotificationBar';
 
 const defaultFormProps = {
   labelWidth: 100,
@@ -173,7 +168,7 @@ class Showcase extends Component {
   render() {
     return (
       <div className="container">
-        {/**<ShowcaseContainer title="Form">
+        <ShowcaseContainer title="Form">
           <TestForm
             dataSource={this.state.formDataSource}
             onChange={(key, value) => this.setState({
@@ -188,18 +183,7 @@ class Showcase extends Component {
           {JSON.stringify(this.state.formDataSource)}
         </ShowcaseContainer>
 
-        <ShowcaseContainer title="Code Editor">
-          <AceEditor
-            mode="javascript"
-            theme="solarized_light"
-            width="100%"
-            onChange={v => console.log(v)}
-            name="UNIQUE_ID_OF_DIV"
-            editorProps={{ $blockScrolling: true }}
-            keyboardHandler="vim"
-          />
-        </ShowcaseContainer>**/}
-        {/**<ShowcaseContainer title="Table">
+        <ShowcaseContainer title="Table">
           <div className="big-column-table-wrapper">
             <Table
               className="big-column-table"
@@ -208,7 +192,7 @@ class Showcase extends Component {
               fixColumnCount={2}
             />
           </div>
-        </ShowcaseContainer>**/}
+        </ShowcaseContainer>
 
         <ShowcaseContainer title="Animate">
           <Select

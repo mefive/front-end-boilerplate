@@ -12,14 +12,20 @@
 var config = require('./config');
 
 var modules = {
+  showcase: {
+    js: 'demo/showcase',
+    html: './jade/demo/showcase',
+  },
+
+  showcase2: {
+    js: 'demo/showcase2',
+    html: './jade/demo/showcase',
+  },
 };
 
 var devconfig = {
-  watchAll: false, // use for build all modules listed in 'modules'
-  // modules: ['showcase', 'showcaseReact', 'showcaseReact2']
-  modules: [
-    'index'
-  ]
+  watchAll: true, // use for build all modules listed in 'modules'
+  modules: ['showcase', 'showcase2'],
 };
 
 module.exports = {

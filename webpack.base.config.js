@@ -18,7 +18,6 @@ module.exports = merge({
     vendor: [
       'react',
       'react-dom',
-      'react-redux',
       'react-router',
       'react-router-scroll',
     ]

@@ -5,7 +5,7 @@ import padStart from 'lodash/padStart';
 import classNames from 'classnames';
 
 import 'styles/components/calendar.scss';
-import CalendarData from 'core/Calendar';
+import CalendarData from 'utils/Calendar';
 
 const calendarData = new CalendarData(0);
 
