@@ -91,7 +91,7 @@ class FormGroup extends Component {
           <div
             className="help-block"
             style={{
-              marginLeft: label ? labelWidth : null
+              marginLeft: vertical || !label ? null : labelWidth
             }}
           >
             {helpBlock}
@@ -261,11 +261,11 @@ Form.create = function (defaultProps = {}) {
               }
               else {
                 if (value.length > maxLength) {
-                  error.push('大于' + maxLength + '个字符');
+                  error.push('不得大于' + maxLength + '个字符');
                 }
 
                 if (value.length < minLength) {
-                  error.push('小于' + minLength + '个字符');
+                  error.push('不得小于' + minLength + '个字符');
                 }
               }
 
