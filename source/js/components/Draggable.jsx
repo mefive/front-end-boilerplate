@@ -42,7 +42,12 @@ class Draggable extends Component {
     this.stopDragging(); 
   }
 
-  move({ clientX, clientY }) {
+  move(e) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    const { clientX, clientY } = e;
+
     const deltaX = clientX - this.mouseStart.left;
     const deltaY = clientY - this.mouseStart.top;
 
