@@ -295,7 +295,7 @@ class Showcase extends Component {
             </div>
           </div>
         </ShowcaseContainer>**/}
-        {/**<ShowcaseContainer title="Scrollable">
+        <ShowcaseContainer title="Scrollable">
           <div>
             <div
               className="btn btn-default"
@@ -322,7 +322,7 @@ class Showcase extends Component {
               123
             </div>
           </Scrollable>
-        </ShowcaseContainer>**/}
+        </ShowcaseContainer>
 
         <ShowcaseContainer title="Draggable">
           <div

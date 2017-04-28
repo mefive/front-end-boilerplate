@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Draggable from './Draggable';
+
 import 'styles/components/scrollable.scss';
 
 const defaultState = {
@@ -7,6 +9,8 @@ const defaultState = {
   scrollHeight: 0,
   thumbSize: 0,
   thumbOffset: 0,
+
+  top: 0,
 };
 
 class Scrollable extends Component {
@@ -42,22 +46,27 @@ class Scrollable extends Component {
 
   onWheel(e) {
     const { deltaY } = e;
-    const { wrapper } = this;
 
-    const max = wrapper.scrollHeight - this.props.height;
-    const min = 0;
+    const scrollTop = this.wrapper.scrollTop + deltaY;
 
-    let scrollTop = wrapper.scrollTop + deltaY;
-
-    scrollTop = Math.max(scrollTop, min);
-    scrollTop = Math.min(scrollTop, max);
-
-    if (scrollTop > min & scrollTop < max) {
+    if (scrollTop === this.restrictScrollTop(scrollTop)) {
       e.preventDefault();
       e.stopPropagation();
     }
 
-    this.setState({ scrollTop });
+    this.setState({ scrollTop: this.restrictScrollTop(scrollTop) });
+  }
+
+  restrictScrollTop(scrollTop) {
+    let top = scrollTop;
+
+    const max = this.wrapper.scrollHeight - this.props.height;
+    const min = 0;
+
+    top = Math.max(top, min);
+    top = Math.min(top, max);
+
+    return top;
   }
 
   syncThumb() {
@@ -77,6 +86,8 @@ class Scrollable extends Component {
   }
 
   render() {
+    const { wrapper } = this;
+
     return (
       <div className="scrollable">
         <div
@@ -92,13 +103,23 @@ class Scrollable extends Component {
 
         {this.state.thumbSize < this.props.height && (
           <div className="scrollable-track">
-            <div
-              className="scrollable-thumb"
-              style={{
-                height: this.state.thumbSize,
-                top: this.state.thumbOffset,
+            <Draggable
+              containerWidth={0}
+              containerHeight={wrapper ? wrapper.clientHeight : 0}
+              top={this.state.thumbOffset}
+              onTopChange={top => {
+                const scrollTop = top / this.getRatio();
+
+                this.setState({ scrollTop: this.restrictScrollTop(scrollTop) });
               }}
-            />
+            >
+              <div
+                className="scrollable-thumb"
+                style={{
+                  height: this.state.thumbSize,
+                }}
+              />
+            </Draggable>
           </div>
         )}
       </div>

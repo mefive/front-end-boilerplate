@@ -4,6 +4,15 @@ import PropTypes from 'prop-types';
 const propTypes = {
   containerWidth: PropTypes.number,
   containerHeight: PropTypes.number,
+  top: PropTypes.number,
+  left: PropTypes.number,
+  onTopChange: PropTypes.func,
+  onLeftChange: PropTypes.func,
+};
+
+const defaultProps = {
+  onTopChange: () => {},
+  onLeftChange: () => {},
 };
 
 const defaultState = {
@@ -55,7 +64,8 @@ class Draggable extends Component {
     top = Math.max(top, 0);
     left = Math.max(left, 0);
 
-    this.setState({ top, left });
+    this.setTop(top);
+    this.setLeft(left);
   }
 
   startDragging(e) {
@@ -76,9 +86,46 @@ class Draggable extends Component {
     window.removeEventListener('mousemove', this.move);
   }
 
+  getTop() {
+    if (this.props.top != null) {
+      return this.props.top;
+    }
+
+    return this.state.top;
+  }
+
+  setTop(top) {
+    if (this.props.top != null) {
+      this.props.onTopChange(top);
+    }
+    else {
+      this.setState({ top });
+    }
+  }
+
+  getLeft() {
+    if (this.props.left != null) {
+      return this.props.left;
+    }
+
+    return this.state.left;
+  }
+
+  setLeft(left) {
+    if (this.props.left != null) {
+      this.props.onLeftChange(left);
+    }
+    else {
+      this.setState({ left });
+    }
+  }
+
   render() {
     const child = React.Children.only(this.props.children);
-    const { top, left, dragging } = this.state;
+    const { dragging } = this.state;
+
+    const top = this.getTop();
+    const left = this.getLeft();
 
     const style = {
       ...child.props.style,
@@ -98,5 +145,6 @@ class Draggable extends Component {
 }
 
 Draggable.propTypes = propTypes;
+Draggable.defaultProps = defaultProps;
 
 export default Draggable;
