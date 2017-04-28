@@ -9,8 +9,6 @@ const defaultState = {
   scrollHeight: 0,
   thumbSize: 0,
   thumbOffset: 0,
-
-  top: 0,
 };
 
 class Scrollable extends Component {
