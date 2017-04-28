@@ -7,7 +7,7 @@ module.exports = merge(base, {
   // devtool: 'source-map',
   devtool: '#eval-source-map',
   devServer: {
-    port: 1872,
+    port: 1573,
     inline: true,
     colors: true,
     progress: true,

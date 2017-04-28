@@ -15,6 +15,7 @@ import RadioGroup from 'components/RadioGroup';
 import Table from 'components/Table';
 import Animate from 'components/Animate';
 import NotificationBar from 'components/NotificationBar';
+import Scrollable from 'components/Scrollable';
 
 const defaultFormProps = {
   labelWidth: 100,
@@ -22,100 +23,98 @@ const defaultFormProps = {
 };
 
 const TestForm = Form.create(defaultFormProps)(
-  React.createClass({
-    render() {
-      const {
-        form,
-        onSubmit = () => null
-      } = this.props;
+  (props) => {
+    const {
+      form,
+      onSubmit = () => null
+    } = props;
 
-      return (
-        <Form { ...defaultFormProps } >
-          <Form.Group required label="Name" helpBlock="123">
-          {form.getFieldDecorator(
-            <Form.Item
-              required
-              keyName="name"
-            >
-              <Input
-                type="text"
-              />              
-            </Form.Item>
-          )}
-            <div className="btn btn-primary">haha</div>
-          </Form.Group>
+    return (
+      <Form { ...defaultFormProps } >
+        <Form.Group required label="Name" helpBlock="123">
+        {form.getFieldDecorator(
+          <Form.Item
+            required
+            keyName="name"
+          >
+            <Input
+              type="text"
+            />              
+          </Form.Item>
+        )}
+          <div className="btn btn-primary">haha</div>
+        </Form.Group>
 
-          <Form.Group label="IsCheck">
-          {form.getFieldDecorator(
-            <Form.Item
-              keyName="isCheck"
-            >
-              <Input type="checkbox" />              
-            </Form.Item>
-          )}
-          </Form.Group>
+        <Form.Group label="IsCheck">
+        {form.getFieldDecorator(
+          <Form.Item
+            keyName="isCheck"
+          >
+            <Input type="checkbox" />              
+          </Form.Item>
+        )}
+        </Form.Group>
 
-          <Form.Group label="Gender">
-          {form.getFieldDecorator(
-            <Form.Item
-              keyName="gender"
-            >
-              <Select
-                options={[
-                  { value: 'male', title: 'Male' },
-                  { value: 'female', title: 'Female'}
-                ]}
-              />              
-            </Form.Item>
-          )}
-          </Form.Group>
+        <Form.Group label="Gender">
+        {form.getFieldDecorator(
+          <Form.Item
+            keyName="gender"
+          >
+            <Select
+              options={[
+                { value: 'male', title: 'Male' },
+                { value: 'female', title: 'Female'}
+              ]}
+            />              
+          </Form.Item>
+        )}
+        </Form.Group>
 
-          <Form.Group label="Category">
-          {form.getFieldDecorator(
-            <Form.Item
-              keyName="category"
-            >
-              <Select
-                options={[
-                  { value: 'worker', title: 'Worker' },
-                  { value: 'student', title: 'Student'}
-                ]}
-              />              
-            </Form.Item>
-          )}
-          </Form.Group>
+        <Form.Group label="Category">
+        {form.getFieldDecorator(
+          <Form.Item
+            keyName="category"
+          >
+            <Select
+              options={[
+                { value: 'worker', title: 'Worker' },
+                { value: 'student', title: 'Student'}
+              ]}
+            />              
+          </Form.Item>
+        )}
+        </Form.Group>
 
-          <Form.Group label="ratio">
-          {form.getFieldDecorator(
-            <Form.Item
-              keyName="ratio"
-            >
-              <RadioGroup
-                options={[
-                  { value: 'worker', title: 'Worker' },
-                  { value: 'student', title: 'Student'}
-                ]}
-              />              
-            </Form.Item>
-          )}
-          </Form.Group>
+        <Form.Group label="ratio">
+        {form.getFieldDecorator(
+          <Form.Item
+            keyName="ratio"
+          >
+            <RadioGroup
+              options={[
+                { value: 'worker', title: 'Worker' },
+                { value: 'student', title: 'Student'}
+              ]}
+            />              
+          </Form.Item>
+        )}
+        </Form.Group>
 
-          <div className="form-actions">
-            <div
-              className="btn btn-primary"
-              onClick={() => {
-                if (!form.validate()) {
-                  onSubmit();
-                }
-              }}
-            >
-              Submit
-            </div>
+        <div className="form-actions">
+          <div
+            className="btn btn-primary"
+            onClick={() => {
+              if (!form.validate()) {
+                onSubmit();
+              }
+            }}
+          >
+            Submit
           </div>
-        </Form>
-      );
-    }
-  })
+        </div>
+      </Form>
+    );
+  }
 );
 
 const maxColumns = 20;
@@ -162,13 +161,14 @@ class Showcase extends Component {
       },
       animates: [],
       notifications: [],
+      scrollBlockHeight: 800,
     }
   }
 
   render() {
     return (
       <div className="container">
-        <ShowcaseContainer title="Form">
+        {/**<ShowcaseContainer title="Form">
           <TestForm
             dataSource={this.state.formDataSource}
             onChange={(key, value) => this.setState({
@@ -293,6 +293,34 @@ class Showcase extends Component {
               Pop
             </div>
           </div>
+        </ShowcaseContainer>**/}
+        <ShowcaseContainer title="Scrollable">
+          <div>
+            <div
+              className="btn btn-default"
+              onClick={() => this.setState({ scrollBlockHeight: random(400, 800) })}
+            >
+              Shrink
+            </div>
+          </div>
+          <Scrollable
+            height={400}
+          >
+            <div
+              className="scroll-block"
+              style={{
+                height: this.state.scrollBlockHeight,
+                width: 200,
+                backgroundColor: 'black',
+                color: 'white',
+                lineHeight: '400px',
+                textAglin: 'center',
+                padding: 20,
+              }}
+            >
+              123
+            </div>
+          </Scrollable>
         </ShowcaseContainer>
       </div>
     );
