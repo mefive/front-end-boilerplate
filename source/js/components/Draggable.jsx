@@ -80,9 +80,10 @@ class Draggable extends Component {
       top: e.clientY,
     };
 
-    const { left, top } = this.state;
-
-    this.draggableItemStart = { left, top };
+    this.draggableItemStart = {
+      left: this.getLeft(),
+      top: this.getTop()
+    };
   }
 
   stopDragging() {

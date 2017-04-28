@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Draggable from './Draggable';
 
 import 'styles/components/scrollable.scss';
+
+const propTypes = {
+  height: PropTypes.number.isRequired,
+};
+
+const defaultProps = {
+  height: 0,
+};
 
 const defaultState = {
   scrollTop: 0,
@@ -124,5 +133,8 @@ class Scrollable extends Component {
     );
   }
 }
+
+Scrollable.propTypes;
+Scrollable.defaultProps;
 
 export default Scrollable;
