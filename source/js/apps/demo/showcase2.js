@@ -16,6 +16,7 @@ import Table from 'components/Table';
 import Animate from 'components/Animate';
 import NotificationBar from 'components/NotificationBar';
 import Scrollable from 'components/Scrollable';
+import Draggable from 'components/Draggable';
 
 const defaultFormProps = {
   labelWidth: 100,
@@ -294,7 +295,7 @@ class Showcase extends Component {
             </div>
           </div>
         </ShowcaseContainer>**/}
-        <ShowcaseContainer title="Scrollable">
+        {/**<ShowcaseContainer title="Scrollable">
           <div>
             <div
               className="btn btn-default"
@@ -321,6 +322,32 @@ class Showcase extends Component {
               123
             </div>
           </Scrollable>
+        </ShowcaseContainer>**/}
+
+        <ShowcaseContainer title="Draggable">
+          <div
+            style={{
+              width: 400,
+              height: 400,
+              outline: '1px solid',
+              position: 'relative',
+            }}
+          >
+            <Draggable
+              containerWidth={400}
+              containerHeight={400}
+            >
+              <div
+                style={{
+                  width: 40,
+                  height: 40,
+                  outline: '1px solid blue',
+                  cursor: 'pointer',
+                  position: 'absolute',
+                }}
+              />
+            </Draggable>
+          </div>
         </ShowcaseContainer>
       </div>
     );
